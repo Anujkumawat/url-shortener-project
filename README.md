@@ -36,7 +36,7 @@ php artisan key:generate
 
 ### 4. Configure Database
 
-Update `.env` file with your database credentials:
+Update .env file with your MySQL credentials
 
 ```env
 DB_DATABASE=your_database
