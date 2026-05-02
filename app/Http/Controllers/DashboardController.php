@@ -26,7 +26,7 @@ class DashboardController extends Controller
                 ->latest()
                 ->paginate(3);
 
-            $urls = Url::with('user');
+            $urls = Url::with(['user', 'company']);
 
             if ($filter === 'today') {
                 $urls->whereDate('created_at', now()->today());
@@ -100,7 +100,7 @@ class DashboardController extends Controller
             $filter = $request->query('filter');
 
             $urls = Url::with('user')
-                ->where('company_id', $user->company_id);
+                ->where('user_id', $user->id);
 
             if ($filter === 'today') {
                 $urls->whereDate('created_at', now()->toDateString());

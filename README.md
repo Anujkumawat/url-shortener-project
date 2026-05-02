@@ -54,7 +54,7 @@ php artisan migrate --seed
 
 ---
 
-### 6. Default Admin Login
+### 6. Default Login credentials
 
 ```
 Email: superadmin@example.com

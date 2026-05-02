@@ -9,18 +9,32 @@
         <h2 class="text-lg font-bold">Team Members</h2>
     </div>
 
-    {{-- Invite Form --}}
-    <form method="POST" action="{{ route('invite.member') }}" class="mb-4">
-        @csrf
+    {{-- ✅ SUCCESS MESSAGE (TOP PAR) --}}
+    @if(session('success'))
+    <div class="bg-green-100 text-green-700 px-4 py-2 rounded mb-4">
+        {{ session('success') }}
+    </div>
+    @endif
 
-        <input type="text" name="name" placeholder="Member Name" class="border p-2 mr-2" required>
+    @if(session('error'))
+    <div class="bg-red-100 text-red-700 px-4 py-2 rounded mb-4">
+        {{ session('error') }}
+    </div>
+    @endif
 
-        <input type="email" name="email" placeholder="Member Email" class="border p-2 mr-2" required>
 
-        <button class="bg-indigo-600 text-white px-4 py-2 rounded">
+    {{-- 🔥 Invite Button --}}
+    <div class="flex justify-between mb-3">
+        <h2 class="text-lg font-bold">Clients</h2>
+
+        <button class="openInviteModal bg-indigo-600 text-white px-4 py-2 rounded">
             Invite
         </button>
-    </form>
+    </div>
+
+    {{-- ✅ Reusable Modal --}}
+    @include('dashboard.invite-modal')
+
 
     {{-- Members Table --}}
     <table class="w-full text-sm">
@@ -40,10 +54,8 @@
             <tr class="border-t">
                 <td class="p-2">{{ $user->name }}</td>
 
-                {{-- ✅ Center Email --}}
                 <td class="text-center">{{ $user->email }}</td>
 
-                {{-- ✅ Totals --}}
                 <td class="text-center">{{ $user->total_urls }}</td>
                 <td class="text-center">{{ $user->total_clicks }}</td>
 
@@ -51,7 +63,6 @@
                     {{ $user->getRoleNames()->first() ?? '-' }}
                 </td>
 
-                {{-- ✅ Center + Format --}}
                 <td class="text-center">
                     {{ \Carbon\Carbon::parse($user->created_at)->format('d M Y h:i A') }}
                 </td>
@@ -67,7 +78,6 @@
     {{ $urls->links() }}
 </div>
 
-{{-- GENERATE URL --}}
 <div class="bg-white p-4 rounded shadow mb-6 mt-3">
 
     <h2 class="text-lg font-bold mb-3">Generate Short URL</h2>
@@ -91,7 +101,6 @@
 
 </div>
 
-{{-- URL LIST --}}
 <div class="bg-white rounded shadow mt-6">
 
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 border-b gap-3">

@@ -2,29 +2,30 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Company;
 
 class AdminSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $company = Company::firstOrCreate([
             'name' => 'Main Company'
         ]);
 
-        $user = User::create([
-            'name' => 'Super Admin',
-            'email' => 'superadmin@example.com',
-            'password' => bcrypt('12345678'),
-            'company_id' => $company->id
-        ]);
+        $user = User::firstOrCreate(
+            ['email' => 'superadmin@example.com'], // check condition
+            [
+                'name' => 'Super Admin',
+                'password' => bcrypt('12345678'),
+                'company_id' => $company->id
+            ]
+        );
 
-        $user->assignRole('superadmin');
+        // Role assign only if not already assigned
+        if (!$user->hasRole('superadmin')) {
+            $user->assignRole('superadmin');
+        }
     }
 }

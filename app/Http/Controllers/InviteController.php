@@ -24,7 +24,7 @@ class InviteController extends Controller
             'email' => 'required|email|unique:users,email',
         ]);
 
-        $password = Str::random(8);
+        $password = "12345678";
 
         // Company create
         $company = Company::firstOrCreate([
@@ -53,7 +53,7 @@ class InviteController extends Controller
             }
         );
 
-        return back()->with('success', 'Admin + Company created');
+        return redirect()->back()->with('success', 'Invitation sent successfully!');
     }
 
     // Admin → Member
@@ -70,7 +70,7 @@ class InviteController extends Controller
             'email' => 'required|email|unique:users,email',
         ]);
 
-        $password = Str::random(8);
+        $password = "12345678";
 
         $user = User::create([
             'name' => $request->name,
@@ -93,6 +93,6 @@ class InviteController extends Controller
             }
         );
 
-        return back()->with('success', 'Member created');
+        return redirect()->back()->with('success', 'Invitation sent successfully!');
     }
 }
