@@ -11,10 +11,9 @@
         <!-- Sidebar Header -->
         <div class="flex items-center justify-between h-20 px-6 bg-indigo-600 text-white flex-shrink-0">
             <div class="flex items-center space-x-3">
-                <a href="{{ route('dashboard') }}">
-                    <x-application-logo class="block h-8 w-auto fill-current text-white" />
-                </a>
-                <span class="text-lg font-semibold hidden sm:inline">{{ config('app.name', 'Laravel') }}</span>
+                <span class="text-lg font-semibold hidden sm:inline">
+                    URL Shortener
+                </span>
             </div>
             <!-- Close Button (Mobile) -->
             <button @click="sidebarOpen = false" class="md:hidden text-white hover:bg-indigo-700 p-1 rounded">
