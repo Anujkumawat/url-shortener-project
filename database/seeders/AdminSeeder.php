@@ -20,7 +20,7 @@ class AdminSeeder extends Seeder
 
         $user = User::create([
             'name' => 'Super Admin',
-            'email' => 'admin@gmail.com',
+            'email' => 'superadmin@example.com',
             'password' => bcrypt('12345678'),
             'company_id' => $company->id
         ]);
