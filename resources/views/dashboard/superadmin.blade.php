@@ -80,15 +80,20 @@
 
     <div class="flex justify-between p-4 border-b">
         <h3 class="text-lg font-bold">Generated URLs</h3>
-
-        <form method="GET">
-            <select name="filter" onchange="this.form.submit()" class="border px-3 py-2 rounded">
-                <option value="">All</option>
-                <option value="today" @selected($filter==='today' )>Today</option>
-                <option value="week" @selected($filter==='week' )>Week</option>
-                <option value="month" @selected($filter==='month' )>Month</option>
-            </select>
-        </form>
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+            <form method="GET">
+                <select name="filter" onchange="this.form.submit()" class="border px-3 py-2 rounded">
+                    <option value="">All</option>
+                    <option value="today" @selected($filter==='today' )>Today</option>
+                    <option value="week" @selected($filter==='week' )>Week</option>
+                    <option value="month" @selected($filter==='month' )>Month</option>
+                </select>
+            </form>
+            <a href="{{ route('urls.download', ['filter' => $filter]) }}" target="_blank"
+                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                Download
+            </a>
+        </div>
     </div>
 
     <table class="w-full text-sm">
