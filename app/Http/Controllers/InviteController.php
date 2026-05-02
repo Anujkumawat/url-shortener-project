@@ -24,7 +24,7 @@ class InviteController extends Controller
             'email' => 'required|email|unique:users,email',
         ]);
 
-        $password = "12345678";
+        $password = Str::random(8);
 
         // Company create
         $company = Company::firstOrCreate([
@@ -70,7 +70,7 @@ class InviteController extends Controller
             'email' => 'required|email|unique:users,email',
         ]);
 
-        $password = "12345678";
+        $password = Str::random(8);
 
         $user = User::create([
             'name' => $request->name,
