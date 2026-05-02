@@ -5,7 +5,7 @@ The frontend is designed using **CSS + JavaScript with Vite**.
 
 ---
 
-## 🚀 Installation
+## Installation
 
 ### 1. Clone the repository
 
@@ -54,7 +54,7 @@ php artisan migrate --seed
 
 ---
 
-### 🔑 Default Admin Login
+### 6. Default Admin Login
 
 ```
 Email: superadmin@example.com
@@ -63,7 +63,7 @@ Password: 12345678
 
 ---
 
-### 6. Configure mail settings in `.env` for sending invitation emails (you can use https://mailtrap.io for testing)
+### 7. Configure mail settings in `.env` for sending invitation emails (you can use https://mailtrap.io for testing)
 
 For email testing, you can use Mailtrap:
 
@@ -77,7 +77,7 @@ MAIL_PASSWORD=your_mailtrap_password
 
 ---
 
-## ▶️ Running the Project
+## 8. Running the Project
 
 ```bash
 php artisan serve
