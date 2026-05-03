@@ -2,14 +2,12 @@
 
 @section('content')
 
-{{-- TEAM MEMBERS --}}
 <div class="bg-white p-4 rounded shadow mb-6">
 
     <div class="flex justify-between mb-3">
         <h2 class="text-lg font-bold">Team Members</h2>
     </div>
 
-    {{-- ✅ SUCCESS MESSAGE (TOP PAR) --}}
     @if(session('success'))
     <div class="bg-green-100 text-green-700 px-4 py-2 rounded mb-4">
         {{ session('success') }}
@@ -23,7 +21,7 @@
     @endif
 
 
-    {{-- 🔥 Invite Button --}}
+    {{-- Invite Button --}}
     <div class="flex justify-between mb-3">
         <h2 class="text-lg font-bold">Clients</h2>
 
@@ -32,7 +30,6 @@
         </button>
     </div>
 
-    {{-- ✅ Reusable Modal --}}
     @include('dashboard.invite-modal')
 
 

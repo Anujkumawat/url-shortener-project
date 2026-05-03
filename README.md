@@ -21,6 +21,7 @@ cd url-shortener-project
 ```bash
 composer install
 npm install
+npm run build
 ```
 
 ---
